@@ -1,0 +1,92 @@
+{
+  "generatedAt": "2026-07-18T17:52:49.750Z",
+  "sourceEntry": "portfolio_company_site_apple_draft.html",
+  "outputEntry": "index.html",
+  "fileCount": 3277,
+  "totalBytes": 240702884,
+  "optimizedImages": 3250,
+  "originalImageBytes": 635961470,
+  "optimizedImageBytes": 239762327,
+  "largestFiles": [
+    {
+      "path": "assets/portfolio-apple/covers/pavilion-waves.webp",
+      "bytes": 912890
+    },
+    {
+      "path": "tmp/not_a_hotel/pdf/board2-2.webp",
+      "bytes": 786370
+    },
+    {
+      "path": "tmp/miyako/studies/20260415/previews/030.webp",
+      "bytes": 746154
+    },
+    {
+      "path": "tmp/not_a_hotel/pdf/board1-3.webp",
+      "bytes": 745206
+    },
+    {
+      "path": "tmp/not_a_hotel/pdf/board2-1.webp",
+      "bytes": 742298
+    },
+    {
+      "path": "assets/portfolio-apple/covers/w-mansion.webp",
+      "bytes": 723368
+    },
+    {
+      "path": "tmp/master_portfolio_2022/pages/previews/page_040.jpg",
+      "bytes": 678461
+    },
+    {
+      "path": "assets/portfolio-apple/covers/breaking-wall.webp",
+      "bytes": 671332
+    },
+    {
+      "path": "assets/portfolio-apple/covers/chengdu-market.webp",
+      "bytes": 666406
+    },
+    {
+      "path": "tmp/mifune_artpolis/pdf/board-1.webp",
+      "bytes": 651856
+    },
+    {
+      "path": "tmp/miyako/studies/20260415/previews/032.webp",
+      "bytes": 633632
+    },
+    {
+      "path": "assets/portfolio-apple/covers/island-restaurant.webp",
+      "bytes": 623100
+    },
+    {
+      "path": "tmp/miyako/studies/20260415/previews/040.webp",
+      "bytes": 619974
+    },
+    {
+      "path": "tmp/miyako/studies/20260415/previews/005.webp",
+      "bytes": 609658
+    },
+    {
+      "path": "tmp/not_a_hotel/pdf/board1-2.webp",
+      "bytes": 593284
+    },
+    {
+      "path": "tmp/miyako/studies/20260415/previews/004.webp",
+      "bytes": 591236
+    },
+    {
+      "path": "tmp/miyako/studies/20260415/previews/002.webp",
+      "bytes": 590878
+    },
+    {
+      "path": "tmp/miyako/studies/20260415/previews/006.webp",
+      "bytes": 568132
+    },
+    {
+      "path": "tmp/master_portfolio_2022/pages/previews/page_061.webp",
+      "bytes": 556224
+    },
+    {
+      "path": "tmp/miyako/studies/20260415/previews/031.webp",
+      "bytes": 547682
+    }
+  ]
+}

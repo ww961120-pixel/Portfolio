@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-07-18T17:52:49.750Z",
+  "generatedAt": "2026-07-20T10:55:42.545Z",
   "sourceEntry": "portfolio_company_site_apple_draft.html",
   "outputEntry": "index.html",
-  "fileCount": 3277,
-  "totalBytes": 240702884,
-  "optimizedImages": 3250,
-  "originalImageBytes": 635961470,
-  "optimizedImageBytes": 239762327,
+  "fileCount": 3344,
+  "totalBytes": 245206421,
+  "optimizedImages": 3317,
+  "originalImageBytes": 643396082,
+  "optimizedImageBytes": 244240425,
   "largestFiles": [
     {
       "path": "assets/portfolio-apple/covers/pavilion-waves.webp",

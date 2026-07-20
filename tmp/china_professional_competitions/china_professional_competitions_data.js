@@ -69,22 +69,22 @@ window.CHINA_PROFESSIONAL_EXTRA = {
       "label": "Professional Competition 03",
       "category": "China professional competition / proposal boards",
       "count": 3,
-      "cover": "tmp/china_professional_competitions/pro03/page_020_preview.webp",
+      "cover": "tmp/china_professional_competitions/pro03/page_020_portrait_thumb.webp",
       "images": [
         {
           "name": "Professional Competition 03 / page 20",
-          "preview": "tmp/china_professional_competitions/pro03/page_020_preview.webp",
-          "thumb": "tmp/china_professional_competitions/pro03/page_020_thumb.webp"
+          "preview": "tmp/china_professional_competitions/pro03/page_020_portrait.webp",
+          "thumb": "tmp/china_professional_competitions/pro03/page_020_portrait_thumb.webp"
         },
         {
           "name": "Professional Competition 03 / page 21",
-          "preview": "tmp/china_professional_competitions/pro03/page_021_preview.webp",
-          "thumb": "tmp/china_professional_competitions/pro03/page_021_thumb.webp"
+          "preview": "tmp/china_professional_competitions/pro03/page_021_portrait.webp",
+          "thumb": "tmp/china_professional_competitions/pro03/page_021_portrait_thumb.webp"
         },
         {
           "name": "Professional Competition 03 / page 22",
-          "preview": "tmp/china_professional_competitions/pro03/page_022_preview.webp",
-          "thumb": "tmp/china_professional_competitions/pro03/page_022_thumb.webp"
+          "preview": "tmp/china_professional_competitions/pro03/page_022_portrait.webp",
+          "thumb": "tmp/china_professional_competitions/pro03/page_022_portrait_thumb.webp"
         }
       ]
     }

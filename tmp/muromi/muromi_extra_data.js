@@ -88,6 +88,175 @@ window.MUROMI_EXTRA = {
       "thumbHeight": 293
     }
   ],
+  "projectBook": {
+    "id": "project-book",
+    "label": "Muromi Danchi Project Book / Overview Edition",
+    "category": "District renewal research / planning framework / 2017-2023",
+    "count": 32,
+    "cover": "tmp/muromi/project_book/thumbs/page-02.webp",
+    "images": [
+        {
+          "name": "Project Book / Page 01",
+          "preview": "tmp/muromi/project_book/pages/page-01.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-01.webp"
+        },
+        {
+          "name": "Project Book / Page 02",
+          "preview": "tmp/muromi/project_book/pages/page-02.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-02.webp"
+        },
+        {
+          "name": "Project Book / Page 03",
+          "preview": "tmp/muromi/project_book/pages/page-03.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-03.webp"
+        },
+        {
+          "name": "Project Book / Page 04",
+          "preview": "tmp/muromi/project_book/pages/page-04.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-04.webp"
+        },
+        {
+          "name": "Project Book / Page 05",
+          "preview": "tmp/muromi/project_book/pages/page-05.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-05.webp"
+        },
+        {
+          "name": "Project Book / Page 06",
+          "preview": "tmp/muromi/project_book/pages/page-06.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-06.webp"
+        },
+        {
+          "name": "Project Book / Page 07",
+          "preview": "tmp/muromi/project_book/pages/page-07.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-07.webp"
+        },
+        {
+          "name": "Project Book / Page 08",
+          "preview": "tmp/muromi/project_book/pages/page-08.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-08.webp"
+        },
+        {
+          "name": "Project Book / Page 09",
+          "preview": "tmp/muromi/project_book/pages/page-09.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-09.webp"
+        },
+        {
+          "name": "Project Book / Page 10",
+          "preview": "tmp/muromi/project_book/pages/page-10.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-10.webp"
+        },
+        {
+          "name": "Project Book / Page 11",
+          "preview": "tmp/muromi/project_book/pages/page-11.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-11.webp"
+        },
+        {
+          "name": "Project Book / Page 12",
+          "preview": "tmp/muromi/project_book/pages/page-12.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-12.webp"
+        },
+        {
+          "name": "Project Book / Page 13",
+          "preview": "tmp/muromi/project_book/pages/page-13.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-13.webp"
+        },
+        {
+          "name": "Project Book / Page 14",
+          "preview": "tmp/muromi/project_book/pages/page-14.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-14.webp"
+        },
+        {
+          "name": "Project Book / Page 15",
+          "preview": "tmp/muromi/project_book/pages/page-15.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-15.webp"
+        },
+        {
+          "name": "Project Book / Page 16",
+          "preview": "tmp/muromi/project_book/pages/page-16.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-16.webp"
+        },
+        {
+          "name": "Project Book / Page 17",
+          "preview": "tmp/muromi/project_book/pages/page-17.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-17.webp"
+        },
+        {
+          "name": "Project Book / Page 18",
+          "preview": "tmp/muromi/project_book/pages/page-18.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-18.webp"
+        },
+        {
+          "name": "Project Book / Page 19",
+          "preview": "tmp/muromi/project_book/pages/page-19.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-19.webp"
+        },
+        {
+          "name": "Project Book / Page 20",
+          "preview": "tmp/muromi/project_book/pages/page-20.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-20.webp"
+        },
+        {
+          "name": "Project Book / Page 21",
+          "preview": "tmp/muromi/project_book/pages/page-21.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-21.webp"
+        },
+        {
+          "name": "Project Book / Page 22",
+          "preview": "tmp/muromi/project_book/pages/page-22.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-22.webp"
+        },
+        {
+          "name": "Project Book / Page 23",
+          "preview": "tmp/muromi/project_book/pages/page-23.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-23.webp"
+        },
+        {
+          "name": "Project Book / Page 24",
+          "preview": "tmp/muromi/project_book/pages/page-24.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-24.webp"
+        },
+        {
+          "name": "Project Book / Page 25",
+          "preview": "tmp/muromi/project_book/pages/page-25.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-25.webp"
+        },
+        {
+          "name": "Project Book / Page 26",
+          "preview": "tmp/muromi/project_book/pages/page-26.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-26.webp"
+        },
+        {
+          "name": "Project Book / Page 27",
+          "preview": "tmp/muromi/project_book/pages/page-27.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-27.webp"
+        },
+        {
+          "name": "Project Book / Page 28",
+          "preview": "tmp/muromi/project_book/pages/page-28.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-28.webp"
+        },
+        {
+          "name": "Project Book / Page 29",
+          "preview": "tmp/muromi/project_book/pages/page-29.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-29.webp"
+        },
+        {
+          "name": "Project Book / Page 30",
+          "preview": "tmp/muromi/project_book/pages/page-30.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-30.webp"
+        },
+        {
+          "name": "Project Book / Page 31",
+          "preview": "tmp/muromi/project_book/pages/page-31.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-31.webp"
+        },
+        {
+          "name": "Project Book / Page 32",
+          "preview": "tmp/muromi/project_book/pages/page-32.webp",
+          "thumb": "tmp/muromi/project_book/thumbs/page-32.webp"
+        }
+    ]
+  },
   "studies": [
     {
       "id": "20221208",

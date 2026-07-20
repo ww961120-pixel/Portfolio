@@ -1051,6 +1051,14 @@
       background: #fffaf2;
     }
 
+    .portfolio-page-grid--portrait {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .portfolio-page-grid--portrait .portfolio-page-card img {
+      aspect-ratio: .713 / 1;
+    }
+
     .study-modal {
       position: fixed;
       inset: 0;
@@ -1143,8 +1151,8 @@
       z-index: 130;
       display: none;
       grid-template-rows: auto 1fr;
-      gap: 14px;
-      padding: 20px;
+      gap: 12px;
+      padding: 16px;
       background: rgba(17,20,19,.92);
     }
 
@@ -1161,17 +1169,199 @@
       font-size: 12px;
     }
 
+    .lightbox-caption {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .lightbox-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lightbox-tool {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,.35);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      font: 600 18px/1 Arial, sans-serif;
+      cursor: pointer;
+    }
+
+    .lightbox-tool:hover,
+    .lightbox-tool:focus-visible {
+      background: rgba(255,255,255,.18);
+      border-color: rgba(255,255,255,.72);
+      outline: none;
+    }
+
+    .lightbox-scale {
+      width: 58px;
+      color: rgba(255,255,255,.78);
+      font-variant-numeric: tabular-nums;
+      text-align: center;
+    }
+
+    .lightbox-position {
+      min-width: 52px;
+      color: rgba(255,255,255,.78);
+      font-variant-numeric: tabular-nums;
+      text-align: center;
+    }
+
+    .lightbox-position[hidden],
+    .lightbox-nav[hidden] {
+      display: none;
+    }
+
+    .lightbox-close {
+      height: 36px;
+      padding: 0 14px;
+      border: 1px solid rgba(255,255,255,.35);
+      background: rgba(255,255,255,.9);
+      color: #111413;
+      font: 700 11px/1 Arial, sans-serif;
+      cursor: pointer;
+    }
+
     .lightbox-stage {
       min-height: 0;
-      display: grid;
-      place-items: center;
+      position: relative;
+      overflow: auto;
+      overscroll-behavior: contain;
+      background: rgba(0,0,0,.12);
+      cursor: grab;
+      scrollbar-color: rgba(255,255,255,.48) rgba(255,255,255,.08);
+      touch-action: pan-x pan-y;
+    }
+
+    .lightbox-stage.panning {
+      cursor: grabbing;
+      user-select: none;
+    }
+
+    .lightbox-stage.is-fit {
+      touch-action: pan-y pinch-zoom;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      z-index: 4;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255,255,255,.42);
+      border-radius: 50%;
+      background: rgba(17,20,19,.68);
+      color: #fff;
+      font: 400 32px/1 Arial, sans-serif;
+      cursor: pointer;
+      transform: translateY(-50%);
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox-nav--previous {
+      left: 24px;
+    }
+
+    .lightbox-nav--next {
+      right: 24px;
+    }
+
+    .lightbox-nav:hover:not(:disabled),
+    .lightbox-nav:focus-visible:not(:disabled) {
+      border-color: rgba(255,255,255,.9);
+      background: rgba(17,20,19,.9);
+      outline: none;
+    }
+
+    .lightbox-nav:disabled {
+      opacity: .2;
+      cursor: default;
+    }
+
+    .lightbox-canvas {
+      width: max-content;
+      min-width: 100%;
+      min-height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
     }
 
     .lightbox img {
-      max-width: 100%;
-      max-height: 100%;
+      display: block;
+      max-width: none;
+      max-height: none;
+      width: auto;
+      height: auto;
       object-fit: contain;
       box-shadow: 0 22px 90px rgba(0,0,0,.32);
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    @media (max-width: 720px) {
+      .lightbox {
+        padding: 10px;
+      }
+
+      .lightbox-bar {
+        gap: 8px;
+      }
+
+      .lightbox-caption {
+        font-size: 10px;
+      }
+
+      .lightbox-tool {
+        width: 34px;
+        height: 34px;
+      }
+
+      .lightbox-scale {
+        display: none;
+      }
+
+      .lightbox-position {
+        min-width: 44px;
+        font-size: 10px;
+      }
+
+      .lightbox-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 28px;
+      }
+
+      .lightbox-nav--previous {
+        left: 14px;
+      }
+
+      .lightbox-nav--next {
+        right: 14px;
+      }
+
+      .lightbox-close {
+        width: 34px;
+        padding: 0;
+        font-size: 0;
+      }
+
+      .lightbox-close::before {
+        content: "×";
+        font-size: 20px;
+      }
+
+      .lightbox-canvas {
+        padding: 12px;
+      }
     }
 
     .reveal {
@@ -1386,9 +1576,9 @@
               <span class="software-ring"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="software-ring__track" cx="50" cy="50" r="42"></circle><circle class="software-ring__value" cx="50" cy="50" r="42"></circle></svg><img src="assets/portfolio-profile/software/enscape.svg" alt=""></span>
               <strong>Enscape</strong><span>Real-time Visualization</span><b>100%</b>
             </button>
-            <button class="software-skill" type="button" data-skill="85" aria-label="Adobe Suite 85%">
+            <button class="software-skill" type="button" data-skill="100" aria-label="Adobe Suite 100%">
               <span class="software-ring"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="software-ring__track" cx="50" cy="50" r="42"></circle><circle class="software-ring__value" cx="50" cy="50" r="42"></circle></svg><img src="assets/portfolio-profile/software/adobe-creative-cloud.svg" alt=""></span>
-              <strong>Adobe Suite</strong><span>Layout / Graphics / Image Editing</span><b>85%</b>
+              <strong>Adobe Suite</strong><span>Layout / Graphics / Image Editing</span><b>100%</b>
             </button>
             <button class="software-skill" type="button" data-skill="80" aria-label="Rhino 80%">
               <span class="software-ring"><svg viewBox="0 0 100 100" aria-hidden="true"><circle class="software-ring__track" cx="50" cy="50" r="42"></circle><circle class="software-ring__value" cx="50" cy="50" r="42"></circle></svg><img src="assets/portfolio-profile/software/rhino.svg" alt=""></span>
@@ -2169,10 +2359,22 @@
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-bar">
-      <span id="lightboxCaption"></span>
-      <button class="ghost-button" id="closeLightbox">Close</button>
+      <span class="lightbox-caption" id="lightboxCaption"></span>
+      <div class="lightbox-tools" aria-label="Image zoom controls">
+        <output class="lightbox-position" id="lightboxPosition" aria-live="polite" hidden></output>
+        <button class="lightbox-tool" id="lightboxZoomOut" type="button" title="Zoom out" aria-label="Zoom out">−</button>
+        <output class="lightbox-scale" id="lightboxScale" aria-live="polite">Fit</output>
+        <button class="lightbox-tool" id="lightboxZoomIn" type="button" title="Zoom in" aria-label="Zoom in">+</button>
+        <button class="lightbox-tool" id="lightboxActual" type="button" title="Actual size" aria-label="Show at actual size">1:1</button>
+        <button class="lightbox-tool" id="lightboxFit" type="button" title="Fit whole image" aria-label="Fit whole image">⊡</button>
+        <button class="lightbox-close" id="closeLightbox" type="button">Close</button>
+      </div>
     </div>
-    <div class="lightbox-stage"><img id="lightboxImage" alt=""></div>
+    <button class="lightbox-nav lightbox-nav--previous" id="lightboxPrevious" type="button" aria-label="Previous image" hidden>&#8249;</button>
+    <button class="lightbox-nav lightbox-nav--next" id="lightboxNext" type="button" aria-label="Next image" hidden>&#8250;</button>
+    <div class="lightbox-stage" id="lightboxStage" tabindex="0" aria-label="Scrollable image viewer">
+      <div class="lightbox-canvas" id="lightboxCanvas"><img id="lightboxImage" alt="" draggable="false"></div>
+    </div>
   </div>
 
   <script src="tmp/nishinakasu/nishinakasu_extra_data.js?v=20260710-2"></script>
@@ -2180,12 +2382,12 @@
   <script src="tmp/miyako/miyako_extra_data.js?v=20260710"></script>
   <script src="tmp/taipei/taipei_extra_data.js?v=20260711"></script>
   <script src="tmp/uki/uki_extra_data.js?v=20260711"></script>
-  <script src="tmp/muromi/muromi_extra_data.js?v=20260711"></script>
+  <script src="tmp/muromi/muromi_extra_data.js?v=20260720"></script>
   <script src="tmp/kumamoto_apartment/kumamoto_apartment_extra_data.js?v=20260711"></script>
   <script src="tmp/xiamen_tongwending/xiamen_tongwending_data.js?v=20260712"></script>
   <script src="tmp/china_competitions/china_competition_data.js?v=20260712"></script>
   <script src="tmp/student_competitions/student_projects_data.js?v=20260713"></script>
-  <script src="tmp/china_professional_competitions/china_professional_competitions_data.js?v=20260713"></script>
+  <script src="tmp/china_professional_competitions/china_professional_competitions_data.js?v=20260720"></script>
   <script src="tmp/master_portfolio_2022/master_portfolio_2022_data.js?v=20260711"></script>
   <script src="assets/portfolio-apple/project-theatre.js?v=20260717"></script>
   <script src="assets/portfolio-apple/profile-theatre.js?v=20260718"></script>
@@ -2664,8 +2866,24 @@
     const studyModalMeta = document.getElementById("studyModalMeta");
     const studyModalGrid = document.getElementById("studyModalGrid");
     const lightbox = document.getElementById("lightbox");
+    const lightboxStage = document.getElementById("lightboxStage");
     const lightboxImage = document.getElementById("lightboxImage");
     const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxScaleOutput = document.getElementById("lightboxScale");
+    const lightboxPosition = document.getElementById("lightboxPosition");
+    const lightboxPrevious = document.getElementById("lightboxPrevious");
+    const lightboxNext = document.getElementById("lightboxNext");
+    const lightboxZoomIn = document.getElementById("lightboxZoomIn");
+    const lightboxZoomOut = document.getElementById("lightboxZoomOut");
+    const lightboxActual = document.getElementById("lightboxActual");
+    const lightboxFit = document.getElementById("lightboxFit");
+    let lightboxScale = 1;
+    let lightboxFitScale = 1;
+    let lightboxAtFit = true;
+    let lightboxPan = null;
+    let lightboxItems = [];
+    let lightboxIndex = -1;
+    let lightboxTouchStart = null;
 
     function setView(view, { updateHash = true } = {}) {
       state.view = view;
@@ -2836,12 +3054,103 @@
       openDetail(next, { updateHistory: false });
     }
 
+    function updateLightboxScaleLabel() {
+      lightboxScaleOutput.value = `${Math.round(lightboxScale * 100)}%`;
+      lightboxScaleOutput.textContent = lightboxScaleOutput.value;
+    }
+
+    function setLightboxScale(nextScale, { preserveCenter = true, fit = false } = {}) {
+      if (!lightboxImage.naturalWidth || !lightboxImage.naturalHeight) return;
+      const previousWidth = Math.max(lightboxStage.scrollWidth, 1);
+      const previousHeight = Math.max(lightboxStage.scrollHeight, 1);
+      const centerX = lightboxStage.scrollLeft + lightboxStage.clientWidth / 2;
+      const centerY = lightboxStage.scrollTop + lightboxStage.clientHeight / 2;
+      lightboxScale = Math.min(4, Math.max(.08, nextScale));
+      lightboxAtFit = fit;
+      lightboxStage.classList.toggle("is-fit", fit);
+      lightboxImage.style.width = `${Math.round(lightboxImage.naturalWidth * lightboxScale)}px`;
+      lightboxImage.style.height = `${Math.round(lightboxImage.naturalHeight * lightboxScale)}px`;
+      updateLightboxScaleLabel();
+      requestAnimationFrame(() => {
+        if (!preserveCenter || fit) {
+          lightboxStage.scrollLeft = 0;
+          lightboxStage.scrollTop = 0;
+          return;
+        }
+        lightboxStage.scrollLeft = centerX / previousWidth * lightboxStage.scrollWidth - lightboxStage.clientWidth / 2;
+        lightboxStage.scrollTop = centerY / previousHeight * lightboxStage.scrollHeight - lightboxStage.clientHeight / 2;
+      });
+    }
+
+    function fitLightboxImage() {
+      if (!lightboxImage.naturalWidth || !lightboxImage.naturalHeight) return;
+      const availableWidth = Math.max(1, lightboxStage.clientWidth - 48);
+      const availableHeight = Math.max(1, lightboxStage.clientHeight - 48);
+      lightboxFitScale = Math.min(1, availableWidth / lightboxImage.naturalWidth, availableHeight / lightboxImage.naturalHeight);
+      setLightboxScale(lightboxFitScale, { preserveCenter: false, fit: true });
+    }
+
+    function updateLightboxNavigation() {
+      const hasSequence = lightboxItems.length > 1;
+      lightboxPrevious.hidden = !hasSequence;
+      lightboxNext.hidden = !hasSequence;
+      lightboxPosition.hidden = !hasSequence;
+      lightboxPrevious.disabled = !hasSequence || lightboxIndex <= 0;
+      lightboxNext.disabled = !hasSequence || lightboxIndex >= lightboxItems.length - 1;
+      lightboxPosition.value = hasSequence ? `${String(lightboxIndex + 1).padStart(2, "0")} / ${String(lightboxItems.length).padStart(2, "0")}` : "";
+      lightboxPosition.textContent = lightboxPosition.value;
+    }
+
+    function showLightboxImage(index) {
+      const item = lightboxItems[index];
+      if (!item) return;
+      lightboxIndex = index;
+      lightboxImage.alt = item.caption;
+      lightboxCaption.textContent = item.caption;
+      lightboxScaleOutput.value = "Loading";
+      lightboxScaleOutput.textContent = "Loading";
+      lightboxImage.style.removeProperty("width");
+      lightboxImage.style.removeProperty("height");
+      lightboxStage.scrollLeft = 0;
+      lightboxStage.scrollTop = 0;
+      lightboxAtFit = true;
+      lightboxStage.classList.add("is-fit");
+      lightboxImage.onload = fitLightboxImage;
+      lightboxImage.src = item.src;
+      updateLightboxNavigation();
+      if (lightboxImage.complete && lightboxImage.naturalWidth) requestAnimationFrame(fitLightboxImage);
+    }
+
     function openLightbox(src, caption) {
-      lightboxImage.src = src;
-      lightboxImage.alt = caption;
-      lightboxCaption.textContent = caption;
+      lightboxItems = [{ src, caption }];
+      lightboxIndex = 0;
       lightbox.classList.add("open");
       lightbox.setAttribute("aria-hidden", "false");
+      showLightboxImage(0);
+      lightboxStage.focus({ preventScroll: true });
+    }
+
+    function openLightboxFromElement(element) {
+      if (!element?.dataset?.src) return;
+      const gallery = element.closest("[data-lightbox-gallery], .portfolio-page-grid, #studyModalGrid, .detail-gallery, .technical-grid, .interior-grid, .final-grid, .plan-grid, .site-photos");
+      const sources = gallery ? Array.from(gallery.querySelectorAll("[data-src]")) : [element];
+      const entries = sources.filter(source => source.dataset.src).map(source => ({
+        element: source,
+        src: source.dataset.src,
+        caption: source.dataset.caption || source.querySelector("img")?.alt || "Portfolio image"
+      }));
+      lightboxItems = entries.map(({ src, caption }) => ({ src, caption }));
+      lightboxIndex = Math.max(0, entries.findIndex(entry => entry.element === element));
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      showLightboxImage(lightboxIndex);
+      lightboxStage.focus({ preventScroll: true });
+    }
+
+    function moveLightboxImage(delta) {
+      const nextIndex = lightboxIndex + delta;
+      if (nextIndex < 0 || nextIndex >= lightboxItems.length) return;
+      showLightboxImage(nextIndex);
     }
 
     function imageButton(src, caption, className = "") {
@@ -2965,7 +3274,7 @@
       return renderGroupedProjectExtra(window.CHINA_PROFESSIONAL_EXTRA?.[section], heading, description);
     }
 
-    function renderMuromiExtra() {
+    function renderMuromiExtraLegacy() {
       const data = window.MUROMI_EXTRA;
       if (!data) return "";
       const summary = data.projectSummary.map(item => `<p>${item}</p>`).join("");
@@ -3007,6 +3316,76 @@
             <div class="study-stat"><b>${data.stats.studyGroups}</b><span>dated study groups</span></div>
             <div class="study-stat"><b>${data.stats.studyImages}</b><span>planning / rendering images</span></div>
             <div class="study-stat"><b>${data.stats.finalImages}</b><span>latest visual outputs</span></div>
+          </div>
+          <div class="massing-wall">${allThumbs}</div>
+          <div class="study-cards">${studyCards}</div>
+        </section>
+      `;
+    }
+
+    function renderMuromiExtra() {
+      const data = window.MUROMI_EXTRA;
+      if (!data) return "";
+      const summary = data.projectSummary.map(item => `<p>${item}</p>`).join("");
+      const finalImages = data.finalImages.map((image, index) =>
+        imageButton(image.src, `Muromi latest visualization ${index + 1} / ${image.name}`, index === 0 ? "final-image wide" : "final-image")
+      ).join("");
+      const allThumbs = data.studies.flatMap((study, studyIndex) =>
+        study.images.map((image, imageIndex) => `<button data-study-index="${studyIndex}" data-image-index="${imageIndex}" title="${study.label} / ${image.name}">
+          <img src="${image.thumb}" alt="${study.label} study ${imageIndex + 1}" loading="lazy">
+        </button>`)
+      ).join("");
+      const studyCards = data.studies.map((study, index) => `<button class="study-card" data-study-open="${index}">
+        <div class="study-card-cover">${study.cover ? `<img src="${study.cover}" alt="${study.label}" loading="lazy">` : ""}</div>
+        <div class="study-card-body">
+          <b>${study.label}</b>
+          <span>${study.count} images / ${study.category}</span>
+        </div>
+      </button>`).join("");
+      const projectBookIndex = data.studies.length;
+      const projectBookCard = `<button class="study-card" data-study-open="${projectBookIndex}">
+        <div class="study-card-cover"><img src="${data.projectBook.cover}" alt="${data.projectBook.label}" loading="lazy"></div>
+        <div class="study-card-body">
+          <b>${data.projectBook.label}</b>
+          <span>${data.projectBook.count} pages / open complete book</span>
+        </div>
+      </button>`;
+      const projectBookPages = data.projectBook.images.map((page, index) => `<button class="portfolio-page-card" data-src="${page.preview}" data-caption="${data.projectBook.label} / ${page.name}">
+        <span>Page ${String(index + 1).padStart(2, "0")}</span>
+        <img src="${page.thumb}" alt="${data.projectBook.label} page ${index + 1}" loading="lazy">
+      </button>`).join("");
+      return `
+        <section class="case-section">
+          <div class="case-section-head">
+            <h3>Latest Visualization</h3>
+            <p>更新したレンダリングを中心に、団地全体のスケール、住棟配置、緑地計画、動線、街区モデルの表現力を示す。</p>
+          </div>
+          <div class="site-panel">
+            <div class="final-grid">${finalImages}</div>
+            <div class="location-card">
+              <b>Project focus</b>
+              ${summary}
+            </div>
+          </div>
+        </section>
+        <section class="case-section">
+          <div class="case-section-head">
+            <h3>Project Book / District Renewal Research</h3>
+            <p>「室見第1住宅 建替え検討プロジェクトブック（概略版）」全32ページを原本順に収録。団地の将来像、建替え検討、行政協議、居住環境と公共空間の考察を、計画提案の研究的背景として確認できる。</p>
+          </div>
+          <div class="study-cards">${projectBookCard}</div>
+          <div class="portfolio-page-grid portfolio-page-grid--portrait">${projectBookPages}</div>
+        </section>
+        <section class="case-section">
+          <div class="case-section-head">
+            <h3>Planning Study Timeline</h3>
+            <p>12.8、12.10、12.13、12.22 の作業フォルダを時系列で整理し、団地規模のモデリング、配置検討、鳥瞰・歩行者視点、立面検討までの作業量を一覧化した。各カードから、その時期の検討内容をまとめて確認できる。</p>
+          </div>
+          <div class="study-stats">
+            <div class="study-stat"><b>${data.stats.studyGroups}</b><span>dated study groups</span></div>
+            <div class="study-stat"><b>${data.stats.studyImages}</b><span>planning / rendering images</span></div>
+            <div class="study-stat"><b>${data.stats.finalImages}</b><span>latest visual outputs</span></div>
+            <div class="study-stat"><b>${data.projectBook.count}</b><span>research book pages</span></div>
           </div>
           <div class="massing-wall">${allThumbs}</div>
           <div class="study-cards">${studyCards}</div>
@@ -3598,7 +3977,10 @@
       if (project?.id === "nishinakasu") return window.NISHINAKASU_EXTRA?.massingStudies || [];
       if (project?.id === "taipei") return window.TAIPEI_EXTRA?.studies || [];
       if (project?.id === "uki") return window.UKI_EXTRA?.studies || [];
-      if (project?.id === "muromi") return window.MUROMI_EXTRA?.studies || [];
+      if (project?.id === "muromi") {
+        const data = window.MUROMI_EXTRA;
+        return data ? [...data.studies, data.projectBook] : [];
+      }
       if (project?.id === "kumamoto-apartment") {
         const data = window.KUMAMOTO_APARTMENT_EXTRA;
         return data ? [...data.studies, data.technicalGroup] : [];
@@ -3624,7 +4006,18 @@
     function closeLightbox() {
       lightbox.classList.remove("open");
       lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.onload = null;
+      lightboxImage.style.removeProperty("width");
+      lightboxImage.style.removeProperty("height");
       lightboxImage.removeAttribute("src");
+      lightboxStage.scrollLeft = 0;
+      lightboxStage.scrollTop = 0;
+      lightboxPan = null;
+      lightboxTouchStart = null;
+      lightboxItems = [];
+      lightboxIndex = -1;
+      lightboxStage.classList.remove("is-fit", "panning");
+      updateLightboxNavigation();
     }
 
     function runReveal() {
@@ -3673,7 +4066,7 @@
     detail.addEventListener("click", event => {
       const item = event.target.closest(".detail-image");
       if (!item) return;
-      openLightbox(item.dataset.src, item.dataset.caption);
+      openLightboxFromElement(item);
     });
 
     detailExtra.addEventListener("click", event => {
@@ -3688,19 +4081,94 @@
         return;
       }
       const image = event.target.closest("[data-src]");
-      if (image) openLightbox(image.dataset.src, image.dataset.caption);
+      if (image) openLightboxFromElement(image);
     });
 
     studyModalGrid.addEventListener("click", event => {
       const image = event.target.closest("[data-src]");
-      if (image) openLightbox(image.dataset.src, image.dataset.caption);
+      if (image) openLightboxFromElement(image);
     });
 
     document.getElementById("closeStudyModal").addEventListener("click", closeStudyModal);
 
     document.getElementById("closeLightbox").addEventListener("click", closeLightbox);
+    lightboxPrevious.addEventListener("click", () => moveLightboxImage(-1));
+    lightboxNext.addEventListener("click", () => moveLightboxImage(1));
+    lightboxZoomIn.addEventListener("click", () => setLightboxScale(lightboxScale * 1.25));
+    lightboxZoomOut.addEventListener("click", () => setLightboxScale(lightboxScale / 1.25));
+    lightboxActual.addEventListener("click", () => setLightboxScale(1));
+    lightboxFit.addEventListener("click", fitLightboxImage);
+
+    lightboxStage.addEventListener("wheel", event => {
+      if (!event.ctrlKey && !event.metaKey) return;
+      event.preventDefault();
+      setLightboxScale(lightboxScale * (event.deltaY < 0 ? 1.12 : .89));
+    }, { passive: false });
+
+    lightboxStage.addEventListener("dblclick", event => {
+      event.preventDefault();
+      if (lightboxAtFit) setLightboxScale(1);
+      else fitLightboxImage();
+    });
+
+    lightboxStage.addEventListener("pointerdown", event => {
+      if (event.button !== 0) return;
+      if (lightboxStage.scrollWidth <= lightboxStage.clientWidth && lightboxStage.scrollHeight <= lightboxStage.clientHeight) return;
+      lightboxPan = {
+        pointerId: event.pointerId,
+        x: event.clientX,
+        y: event.clientY,
+        left: lightboxStage.scrollLeft,
+        top: lightboxStage.scrollTop
+      };
+      lightboxStage.setPointerCapture(event.pointerId);
+      lightboxStage.classList.add("panning");
+      event.preventDefault();
+    });
+
+    lightboxStage.addEventListener("pointermove", event => {
+      if (!lightboxPan || lightboxPan.pointerId !== event.pointerId) return;
+      lightboxStage.scrollLeft = lightboxPan.left - (event.clientX - lightboxPan.x);
+      lightboxStage.scrollTop = lightboxPan.top - (event.clientY - lightboxPan.y);
+    });
+
+    function stopLightboxPan(event) {
+      if (!lightboxPan || lightboxPan.pointerId !== event.pointerId) return;
+      lightboxPan = null;
+      lightboxStage.classList.remove("panning");
+    }
+
+    lightboxStage.addEventListener("pointerup", stopLightboxPan);
+    lightboxStage.addEventListener("pointercancel", stopLightboxPan);
+
+    lightboxStage.addEventListener("touchstart", event => {
+      if (!lightboxAtFit || lightboxItems.length < 2 || event.touches.length !== 1) {
+        lightboxTouchStart = null;
+        return;
+      }
+      const touch = event.touches[0];
+      lightboxTouchStart = { x: touch.clientX, y: touch.clientY };
+    }, { passive: true });
+
+    lightboxStage.addEventListener("touchend", event => {
+      if (!lightboxTouchStart || event.changedTouches.length !== 1) {
+        lightboxTouchStart = null;
+        return;
+      }
+      const touch = event.changedTouches[0];
+      const deltaX = touch.clientX - lightboxTouchStart.x;
+      const deltaY = touch.clientY - lightboxTouchStart.y;
+      lightboxTouchStart = null;
+      if (Math.abs(deltaX) < 48 || Math.abs(deltaX) <= Math.abs(deltaY) * 1.15) return;
+      moveLightboxImage(deltaX > 0 ? -1 : 1);
+    }, { passive: true });
+
     lightbox.addEventListener("click", event => {
-      if (event.target === lightbox || event.target.classList.contains("lightbox-stage")) closeLightbox();
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    window.addEventListener("resize", () => {
+      if (lightbox.classList.contains("open") && lightboxAtFit) fitLightboxImage();
     });
 
     document.addEventListener("keydown", event => {
@@ -3708,6 +4176,20 @@
         if (lightbox.classList.contains("open")) closeLightbox();
         else if (studyModal.classList.contains("open")) closeStudyModal();
         else if (detail.classList.contains("open")) closeDetail();
+      }
+      if (lightbox.classList.contains("open")) {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          moveLightboxImage(-1);
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          moveLightboxImage(1);
+        }
+        if (event.key === "+" || event.key === "=") setLightboxScale(lightboxScale * 1.25);
+        if (event.key === "-") setLightboxScale(lightboxScale / 1.25);
+        if (event.key === "0") fitLightboxImage();
+        if (event.key === "1") setLightboxScale(1);
       }
       if (detail.classList.contains("open") && !lightbox.classList.contains("open") && !studyModal.classList.contains("open")) {
         if (event.key === "Tab") {

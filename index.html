@@ -1490,6 +1490,7 @@
     }
   </style>
   <link rel="stylesheet" href="assets/portfolio-apple/project-theatre.css?v=20260717">
+  <link rel="stylesheet" href="assets/portfolio-apple/works-cinema.css?v=20260724b">
   <link rel="stylesheet" href="assets/portfolio-apple/profile-theatre.css?v=20260718">
 </head>
 <body>
@@ -1510,7 +1511,7 @@
   <main>
     <section class="view active" id="profileView" data-view="profile">
       <div class="profile-theatre" aria-label="Wang Yinqi profile">
-        <section class="profile-scene profile-scene--cover" data-profile-scene="cover" aria-labelledby="profileCoverTitle">
+        <section class="profile-scene profile-scene--cover" id="profileCover" data-profile-scene="cover" aria-labelledby="profileCoverTitle">
           <div class="kinetic-lines" id="kineticLines" aria-hidden="true">
             <span></span><span></span><span></span><span></span><span></span><span></span>
             <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -1528,7 +1529,7 @@
           </div>
         </section>
 
-        <section class="profile-scene profile-scene--identity" data-profile-scene="identity" aria-labelledby="profileIdentityTitle">
+        <section class="profile-scene profile-scene--identity" id="profileIntro" data-profile-scene="identity" aria-labelledby="profileIdentityTitle">
           <div class="profile-scene__index">02 / 04</div>
           <div class="identity-portrait">
             <img src="assets/portfolio-profile/portrait.webp" alt="Portrait of Wang Yinqi">
@@ -1557,7 +1558,7 @@
           </div>
         </section>
 
-        <section class="profile-scene profile-scene--software" data-profile-scene="software" aria-labelledby="profileSoftwareTitle">
+        <section class="profile-scene profile-scene--software" id="profileSoftware" data-profile-scene="software" aria-labelledby="profileSoftwareTitle">
           <div class="profile-scene__index">03 / 04</div>
           <header class="software-heading">
             <p>TOOLS / PROFICIENCY</p>
@@ -1599,7 +1600,7 @@
           </div>
         </section>
 
-        <section class="profile-scene profile-scene--experience" data-profile-scene="experience" aria-labelledby="profileExperienceTitle">
+        <section class="profile-scene profile-scene--experience" id="profileExperience" data-profile-scene="experience" aria-labelledby="profileExperienceTitle">
           <div class="profile-scene__index">04 / 04</div>
           <header class="experience-heading">
             <p>PROJECT EXPERIENCE / SELECTED TYPES</p>
@@ -2307,12 +2308,35 @@
     </section>
 
     <section class="view theatre-view" id="worksView" data-view="works">
-      <div class="theatre-toolbar" role="toolbar" aria-label="Project filters">
-        <div class="filters" id="filters"></div>
-        <div class="theatre-progress" id="theatreProgress" aria-live="polite">01 / 01</div>
-      </div>
-      <div class="project-theatre" id="worksGrid"></div>
-      <div class="theatre-next" id="theatreNext" aria-hidden="true"></div>
+      <header class="works-cinema-header">
+        <a class="works-cinema-brand" href="#works" aria-label="Works index">
+          <span>WANG YINQI</span>
+          <b>Selected Architecture</b>
+        </a>
+        <nav class="works-cinema-nav" aria-label="Works sections">
+          <a href="#selectedWorks">Selected</a>
+          <a href="#worksAtlas">All Projects</a>
+        </nav>
+      </header>
+      <section class="selected-works" id="selectedWorks" aria-labelledby="selectedWorksTitle">
+        <h1 class="visually-hidden" id="selectedWorksTitle">Selected Works</h1>
+        <div class="theatre-toolbar" role="toolbar" aria-label="Project filters">
+          <div class="filters" id="filters"></div>
+          <div class="theatre-progress" id="theatreProgress" aria-live="polite">01 / 01</div>
+        </div>
+        <div class="project-theatre" id="worksGrid" data-observer-root="viewport"></div>
+        <div class="theatre-next" id="theatreNext" aria-hidden="true"></div>
+      </section>
+      <section class="works-atlas" id="worksAtlas" aria-labelledby="worksAtlasTitle">
+        <header class="works-atlas__header">
+          <div>
+            <p>Complete Project Directory</p>
+            <h2 id="worksAtlasTitle">All Works</h2>
+          </div>
+          <p>Japan practice, China projects, competitions and academic work are kept together as a complete record.</p>
+        </header>
+        <div class="works-atlas__grid" id="worksAtlasGrid"></div>
+      </section>
     </section>
   </main>
 
@@ -2326,7 +2350,17 @@
       </div>
     </div>
     <div class="detail-inner">
-      <div class="detail-top">
+      <section class="detail-hero" id="detailHero">
+        <img class="detail-hero__image" id="detailHeroImage" src="" alt="">
+        <div class="detail-hero__shade"></div>
+        <div class="detail-hero__copy">
+          <p id="detailHeroNumber"></p>
+          <h2 id="detailHeroTitle"></h2>
+          <span id="detailHeroSubtitle"></span>
+        </div>
+        <a class="detail-hero__scroll" href="#detailOverview">Project overview <span aria-hidden="true">↓</span></a>
+      </section>
+      <div class="detail-top" id="detailOverview">
         <div class="detail-title">
           <div class="detail-kicker" id="detailNumber"></div>
           <h2 id="detailTitle"></h2>
@@ -2343,6 +2377,16 @@
       </div>
       <div class="detail-gallery" id="detailGallery"></div>
       <div class="case-extra" id="detailExtra"></div>
+      <nav class="detail-pagination" aria-label="Adjacent projects">
+        <button type="button" data-detail-move="-1">
+          <span>Previous project</span>
+          <b id="detailPreviousTitle"></b>
+        </button>
+        <button type="button" data-detail-move="1">
+          <span>Next project</span>
+          <b id="detailNextTitle"></b>
+        </button>
+      </nav>
     </div>
   </section>
 
@@ -2843,6 +2887,18 @@
       "hopcup-heritage",
       "master-portfolio-2022"
     ];
+    const featuredProjectOrder = [
+      "yanagawa",
+      "nishinakasu",
+      "miyako",
+      "muromi",
+      "taipei",
+      "kumamoto-apartment",
+      "uki",
+      "mifune",
+      "not-a-hotel",
+      "xiamen"
+    ];
     const projectRank = new Map(projectOrder.map((id, index) => [id, index]));
     projects.sort((a, b) => projectRank.get(a.id) - projectRank.get(b.id));
 
@@ -2858,9 +2914,11 @@
     const views = document.querySelectorAll(".view");
     const navButtons = document.querySelectorAll("[data-view-link]");
     const worksGrid = document.getElementById("worksGrid");
+    const worksAtlasGrid = document.getElementById("worksAtlasGrid");
     const filterHost = document.getElementById("filters");
     const detail = document.getElementById("detail");
     const detailExtra = document.getElementById("detailExtra");
+    const detailHeroImage = document.getElementById("detailHeroImage");
     const studyModal = document.getElementById("studyModal");
     const studyModalTitle = document.getElementById("studyModalTitle");
     const studyModalMeta = document.getElementById("studyModalMeta");
@@ -2926,11 +2984,13 @@
 
     function renderWorks() {
       renderFilters();
-      const visible = visibleProjects();
-      worksGrid.innerHTML = visible.map((project, visibleIndex) => {
+      const organized = PortfolioApple.organizeProjects(projects, featuredProjectOrder, state.filter);
+      const featured = organized.featured;
+      const atlas = organized.atlas;
+      worksGrid.innerHTML = featured.map((project, visibleIndex) => {
         const index = projects.indexOf(project);
         const number = String(visibleIndex + 1).padStart(2, "0");
-        const total = String(visible.length).padStart(2, "0");
+        const total = String(featured.length).padStart(2, "0");
         const desktopCover = PortfolioApple.coverStyle(project, false);
         const portraitCover = PortfolioApple.coverStyle(project, true);
         const coverMedia = project.coverSecondary ? `<div class="project-slide__collage">
@@ -2949,24 +3009,39 @@
           <div class="project-slide__number">${number} / ${total}</div>
         </article>`;
       }).join("");
-      worksGrid.querySelectorAll(".project-slide__image").forEach(image => {
+      worksAtlasGrid.innerHTML = atlas.map((project, atlasIndex) => {
+        const index = projects.indexOf(project);
+        const desktopCover = PortfolioApple.coverStyle(project, false);
+        return `<article class="works-atlas-card" data-project-id="${project.id}" style="--cover-position:${desktopCover.position}">
+          <button class="works-atlas-card__open" type="button" data-project-open="${index}" aria-label="View ${project.title}">
+            <span class="works-atlas-card__media"><img src="${project.cover}" alt="" loading="lazy" decoding="async"></span>
+            <span class="works-atlas-card__meta">
+              <span>${String(atlasIndex + 1).padStart(2, "0")} / ${projectCategoryLabel(project)}</span>
+              <b>${project.title}</b>
+              <small>${project.projectType}${project.status ? ` / ${project.status}` : ""}</small>
+            </span>
+          </button>
+        </article>`;
+      }).join("");
+      document.querySelectorAll(".project-slide__image, .works-atlas-card__media img").forEach(image => {
         image.addEventListener("error", () => {
-          const slide = image.closest(".project-slide");
+          const slide = image.closest(".project-slide, .works-atlas-card");
           image.hidden = true;
           const hasVisibleCover = [...(slide?.querySelectorAll(".project-slide__image") || [])]
             .some(candidate => !candidate.hidden);
-          if (!hasVisibleCover) slide?.classList.add("has-image-error");
+          if (!image.closest(".project-slide") || !hasVisibleCover) slide?.classList.add("has-image-error");
         }, { once: true });
       });
-      if (!visible.length) {
+      if (!featured.length) {
         if (worksGrid._portfolioObserver) {
           worksGrid._portfolioObserver.disconnect();
           worksGrid._portfolioObserver = null;
         }
-        updateTheatreChrome(0, visible);
+        worksGrid.innerHTML = `<div class="works-empty"><p>No selected projects in this category.</p><a href="#worksAtlas">View the complete directory</a></div>`;
+        updateTheatreChrome(0, featured);
         return;
       }
-      PortfolioApple.activateTheatre({ host: worksGrid, projects: visible, onActive: updateTheatreChrome });
+      PortfolioApple.activateTheatre({ host: worksGrid, projects: featured, onActive: updateTheatreChrome });
     }
 
     function updateTheatreChrome(activeIndex, visible) {
@@ -3007,11 +3082,19 @@
       document.getElementById("detailCounter").textContent = `${String(index + 1).padStart(2, "0")} / ${String(projects.length).padStart(2, "0")}`;
       document.getElementById("detailTitle").textContent = project.title;
       document.getElementById("detailSubtitle").textContent = project.subtitle;
+      document.getElementById("detailHeroNumber").textContent = `${String(index + 1).padStart(2, "0")} / ${projectCategoryLabel(project)}`;
+      document.getElementById("detailHeroTitle").textContent = project.title;
+      document.getElementById("detailHeroSubtitle").textContent = project.subtitle;
+      detailHeroImage.src = project.cover;
+      detailHeroImage.alt = project.title;
+      detailHeroImage.style.objectPosition = PortfolioApple.coverPosition(project, false);
       document.getElementById("detailFacts").innerHTML = `${project.status ? `<b>Status</b><br>${project.status}<br><br>` : ""}<b>Project data</b><br>${project.facts}`;
       document.getElementById("detailRole").textContent = project.role;
       document.getElementById("detailTags").innerHTML = `${projectMetaBadges(project)}${project.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}`;
       document.getElementById("detailGallery").innerHTML = "";
       detailExtra.innerHTML = renderProjectExtra(project);
+      document.getElementById("detailPreviousTitle").textContent = projects[(index - 1 + projects.length) % projects.length].title;
+      document.getElementById("detailNextTitle").textContent = projects[(index + 1) % projects.length].title;
       detail.classList.add("open");
       detail.setAttribute("aria-hidden", "false");
       document.body.classList.add("locked");
@@ -4051,6 +4134,12 @@
       openDetail(Number(openButton.dataset.projectOpen));
     });
 
+    worksAtlasGrid.addEventListener("click", event => {
+      const openButton = event.target.closest("[data-project-open]");
+      if (!openButton) return;
+      openDetail(Number(openButton.dataset.projectOpen));
+    });
+
     document.addEventListener("portfolio:open-project", event => {
       const projectId = event.detail?.projectId;
       const index = projects.findIndex(project => project.id === projectId);
@@ -4062,6 +4151,9 @@
     document.getElementById("closeDetail").addEventListener("click", closeDetail);
     document.getElementById("prevProject").addEventListener("click", () => moveProject(-1));
     document.getElementById("nextProject").addEventListener("click", () => moveProject(1));
+    detail.querySelectorAll("[data-detail-move]").forEach(button => {
+      button.addEventListener("click", () => moveProject(Number(button.dataset.detailMove)));
+    });
 
     detail.addEventListener("click", event => {
       const item = event.target.closest(".detail-image");

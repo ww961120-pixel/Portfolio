@@ -1,0 +1,514 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.theatre-view.active {
+  height: auto;
+  min-height: 100svh;
+  overflow: visible;
+  background: #101210;
+}
+
+.works-cinema-header {
+  position: absolute;
+  z-index: 34;
+  top: 92px;
+  right: clamp(22px, 4vw, 58px);
+  left: clamp(22px, 4vw, 58px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: #fff;
+  pointer-events: none;
+}
+
+.works-cinema-header a {
+  pointer-events: auto;
+}
+
+.works-cinema-brand {
+  display: grid;
+  gap: 3px;
+  font-size: 10px;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.works-cinema-brand span {
+  color: rgba(255, 255, 255, .66);
+}
+
+.works-cinema-brand b {
+  font-size: 13px;
+}
+
+.works-cinema-nav {
+  display: flex;
+  gap: 22px;
+  color: rgba(255, 255, 255, .72);
+  font-size: 11px;
+  font-weight: 720;
+}
+
+.works-cinema-nav a {
+  padding-bottom: 5px;
+  border-bottom: 1px solid transparent;
+}
+
+.works-cinema-nav a:hover,
+.works-cinema-nav a:focus-visible {
+  color: #fff;
+  border-color: currentColor;
+}
+
+.selected-works {
+  position: relative;
+  background: #101210;
+}
+
+.theatre-view .project-theatre {
+  height: auto;
+  overflow: visible;
+  scroll-snap-type: none;
+  overscroll-behavior: auto;
+}
+
+.project-slide {
+  min-height: 100svh;
+  scroll-snap-align: none;
+}
+
+.project-slide__shade,
+.project-slide.tone-light .project-slide__shade,
+.project-slide.has-image-error .project-slide__shade {
+  background: rgba(0, 0, 0, .36);
+}
+
+.project-slide__copy {
+  bottom: clamp(44px, 9vh, 96px);
+  width: min(72vw, 1040px);
+}
+
+.project-slide__eyebrow {
+  max-width: 880px;
+}
+
+.project-slide__copy h2 {
+  max-width: 980px;
+  font-size: clamp(42px, 5.2vw, 84px);
+  font-weight: 560;
+}
+
+.project-slide__copy p {
+  max-width: 780px;
+  font-size: 14px;
+}
+
+.project-slide__open {
+  min-height: 38px;
+  margin-top: 24px;
+  transition: gap 220ms ease, border-color 220ms ease;
+}
+
+.project-slide__open:hover {
+  gap: 16px;
+}
+
+.theatre-toolbar {
+  top: 132px;
+}
+
+.theatre-next {
+  position: absolute;
+}
+
+.works-empty {
+  min-height: 100svh;
+  display: grid;
+  place-content: center;
+  gap: 16px;
+  color: rgba(255, 255, 255, .72);
+  text-align: center;
+}
+
+.works-empty p {
+  margin: 0;
+}
+
+.works-empty a {
+  justify-self: center;
+  padding-bottom: 5px;
+  border-bottom: 1px solid currentColor;
+  color: #fff;
+  font-size: 12px;
+}
+
+.works-atlas {
+  position: relative;
+  z-index: 2;
+  min-height: 100svh;
+  padding: clamp(92px, 11vw, 164px) clamp(22px, 5vw, 78px);
+  background: #f3f1eb;
+  color: #121412;
+}
+
+.works-atlas__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 460px);
+  gap: 40px;
+  align-items: end;
+  max-width: 1680px;
+  margin: 0 auto clamp(42px, 7vw, 92px);
+  padding-bottom: 22px;
+  border-bottom: 1px solid #bdbab1;
+}
+
+.works-atlas__header p {
+  margin: 0;
+  color: #70736e;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.works-atlas__header h2 {
+  margin: 8px 0 0;
+  font-size: clamp(46px, 8vw, 116px);
+  line-height: .82;
+  font-weight: 520;
+}
+
+.works-atlas__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(34px, 6vw, 92px) clamp(18px, 3vw, 48px);
+  max-width: 1680px;
+  margin: 0 auto;
+}
+
+.works-atlas-card {
+  min-width: 0;
+}
+
+.works-atlas-card:nth-child(5n + 1) {
+  grid-column: 1 / -1;
+}
+
+.works-atlas-card__open {
+  appearance: none;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.works-atlas-card__media {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #d9d7d0;
+}
+
+.works-atlas-card:nth-child(5n + 1) .works-atlas-card__media {
+  aspect-ratio: 21 / 9;
+}
+
+.works-atlas-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--cover-position, 50% 50%);
+  filter: grayscale(1);
+  transform: scale(1.002);
+  transition: filter 520ms ease, transform 700ms cubic-bezier(.2, .7, .2, 1);
+}
+
+.works-atlas-card__open:hover .works-atlas-card__media img,
+.works-atlas-card__open:focus-visible .works-atlas-card__media img {
+  filter: grayscale(0);
+  transform: scale(1.025);
+}
+
+.works-atlas-card.has-image-error .works-atlas-card__media::after {
+  content: "Image unavailable";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #777a74;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.works-atlas-card__meta {
+  display: grid;
+  grid-template-columns: minmax(120px, .34fr) minmax(0, 1fr);
+  gap: 8px 24px;
+  padding-top: 14px;
+  border-top: 1px solid #262926;
+}
+
+.works-atlas-card__meta > span,
+.works-atlas-card__meta small {
+  color: #777a74;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.works-atlas-card__meta b {
+  font-size: clamp(20px, 2.1vw, 34px);
+  line-height: 1.08;
+  font-weight: 600;
+}
+
+.works-atlas-card__meta small {
+  grid-column: 2;
+}
+
+.detail {
+  background: #f3f1eb;
+}
+
+.detail-inner {
+  padding: 0 0 70px;
+  gap: 0;
+}
+
+.detail-hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #171917;
+  color: #fff;
+}
+
+.detail-hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  transform: scale(1.01);
+}
+
+.detail-hero__shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .42);
+}
+
+.detail-hero__copy {
+  position: absolute;
+  z-index: 1;
+  right: clamp(22px, 5vw, 76px);
+  bottom: clamp(58px, 11vh, 124px);
+  left: clamp(22px, 5vw, 76px);
+  display: grid;
+  gap: 11px;
+}
+
+.detail-hero__copy p,
+.detail-hero__copy span {
+  margin: 0;
+  color: rgba(255, 255, 255, .75);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.detail-hero__copy h2 {
+  max-width: 1180px;
+  margin: 0;
+  font-size: clamp(44px, 7vw, 112px);
+  line-height: .9;
+  font-weight: 540;
+}
+
+.detail-hero__scroll {
+  position: absolute;
+  z-index: 1;
+  right: clamp(22px, 5vw, 76px);
+  bottom: 28px;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  color: rgba(255, 255, 255, .76);
+  font-size: 11px;
+}
+
+.detail-hero__scroll:hover {
+  color: #fff;
+}
+
+.detail-top,
+.case-extra,
+.detail-pagination {
+  width: min(100% - 44px, 1600px);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.detail-top {
+  padding: clamp(82px, 10vw, 150px) 0 clamp(54px, 8vw, 112px);
+  border-bottom: 1px solid var(--line);
+}
+
+.case-extra {
+  padding-top: clamp(40px, 6vw, 82px);
+  gap: clamp(54px, 8vw, 118px);
+}
+
+.case-extra .case-section {
+  padding-top: clamp(24px, 4vw, 46px);
+}
+
+.case-extra img {
+  object-fit: contain;
+}
+
+.detail-pagination {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: clamp(80px, 12vw, 170px);
+  border-top: 1px solid #aaa79f;
+  border-bottom: 1px solid #aaa79f;
+}
+
+.detail-pagination button {
+  appearance: none;
+  display: grid;
+  gap: 11px;
+  min-height: 170px;
+  padding: 28px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.detail-pagination button + button {
+  border-left: 1px solid #aaa79f;
+  text-align: right;
+}
+
+.detail-pagination span {
+  color: #777a74;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.detail-pagination b {
+  align-self: end;
+  font-size: clamp(22px, 3vw, 44px);
+  line-height: 1;
+  font-weight: 560;
+}
+
+.detail-pagination button:hover,
+.detail-pagination button:focus-visible {
+  background: #e7e4dc;
+}
+
+@media (max-width: 900px) {
+  .works-atlas__header {
+    grid-template-columns: 1fr;
+  }
+
+  .works-atlas-card__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .works-atlas-card__meta small {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 720px) {
+  .works-cinema-header {
+    top: 144px;
+  }
+
+  .works-cinema-nav {
+    display: none;
+  }
+
+  .theatre-toolbar {
+    top: 188px;
+  }
+
+  .project-slide__copy {
+    bottom: 74px;
+    width: calc(100% - 44px);
+  }
+
+  .project-slide__copy h2 {
+    font-size: clamp(38px, 13vw, 60px);
+  }
+
+  .project-slide__number {
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .works-atlas {
+    padding-top: 168px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .works-atlas__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .works-atlas-card:nth-child(5n + 1) {
+    grid-column: 1;
+  }
+
+  .works-atlas-card__media,
+  .works-atlas-card:nth-child(5n + 1) .works-atlas-card__media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .detail-hero__copy h2 {
+    font-size: clamp(40px, 13vw, 70px);
+  }
+
+  .detail-top,
+  .case-extra,
+  .detail-pagination {
+    width: min(100% - 28px, 1600px);
+  }
+
+  .detail-pagination {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-pagination button {
+    min-height: 128px;
+    padding: 20px 12px;
+  }
+
+  .detail-pagination button + button {
+    border-top: 1px solid #aaa79f;
+    border-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .works-atlas-card__media img {
+    transition: none;
+  }
+}

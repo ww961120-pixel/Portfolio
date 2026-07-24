@@ -28,6 +28,16 @@
     return projects.filter(project => project.portfolioCategory === filter);
   }
 
+  function organizeProjects(projects, featuredIds, filter = 'all') {
+    const atlas = filterProjects(Array.isArray(projects) ? projects : [], filter);
+    const featuredMap = new Map(atlas.map(project => [project.id, project]));
+    const featured = (Array.isArray(featuredIds) ? featuredIds : [])
+      .map(id => featuredMap.get(id))
+      .filter(Boolean);
+
+    return { featured, atlas };
+  }
+
   function coverPosition(project, portrait) {
     const value = project.coverPosition || {};
     return (portrait ? value.portrait : value.desktop) || value.default || '50% 50%';
@@ -95,7 +105,7 @@
       preloadNext(projects, index, 2);
       if (typeof onActive === 'function') onActive(index, projects);
     }, {
-      root: host,
+      root: host.dataset.observerRoot === 'viewport' ? null : host,
       threshold: [0.55, 0.72]
     });
 
@@ -112,6 +122,7 @@
     parseProjectHash,
     projectIndexFromHash,
     filterProjects,
+    organizeProjects,
     coverPosition,
     coverStyle,
     preloadNext,
